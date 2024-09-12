@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 구글 폰트 적용 */
+       /* @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
+        .PlaypenSans
+        {
+            font-family: "Playpen Sans", sans-serif;
+        }*/
+        @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        .PlaypenSans
+        {
+            font-family: "Playpen Sans", sans-serif;
+        }
+        .Poppins
+        {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* 기본 스타일 시트 CSS */
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a, a:link, a:visited
+        {
+            color: inherit;
+            text-decoration: none;
+        }
+        li
+        {
+            list-style: none;
+        }
+
+        /* 헤더 영역의 CSS */
+        .container
+        {
+            width: 1140px; /*기준 너비*/
+            margin: 0 auto; /*수평 방향에서 중앙에 위치 설정*/
+        }
+        header
+        {
+            position: absolute; /*absolute -> fixd */
+            color: white; /*black -> white*/
+            top: 0; 
+            z-index: 1; /*스크롤 했을 때, 다른 요소 밑에 가려서 안 보이는 일이 없도록 헤더의 z-index 속성 값을 0보다 크게 설정*/
+            width: 100%;
+            padding: 1rem;
+        }
+
+        /* 헤더 영역의 메뉴 배치 */
+        header .container
+        {
+            display:flex; /*헤더 영역에서 메뉴를 가로 한 줄로 배치*/
+            justify-content: space-between; /*하위에서 자식 태그가 2개 있을 때 각각 왼쪽 끝과 오른쪽 끝에 붙게 설정*/
+            align-items: center; /*수직 정렬 설정*/
+            width: 100%;
+        }
+        /* 헤더 영역의 메뉴 내부 여뱍과 글꼴 크기 지정 */
+        header nav ul
+        {
+            display: flex;
+        }
+        header nav ul li
+        {
+            padding: 10px;
+        }
+        header button
+        {
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+        }
+        header h1 button
+        {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        header nav ul li button
+        {
+            font-size: 1.2rem;
+            color: white; /*텍스트 흰색*/
+        }
+        /* 메인 영역 */
+        main  /* 배경 이미지 지정*/
+        {
+            width: 100%;
+            height: 100vh;
+            color: white;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('images/me.jpg') center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        /* 텍스트별 크키와 속성 지정 */
+        main h4
+        {
+            font-size: 2rem;
+
+        }
+        main h2
+        {
+            font-size: 3.5rem;
+            margin: 2rem 0;
+            letter-spacing: 3px;
+            /* 구글 폰트 추가 2 */
+            letter-spacing: 3px;
+            font-family: "Playpen Sans", sans-serif;
+        }
+        main p
+        {
+            max-width: 500px;
+            margin: 0 auto;
+            font-size: 1.25rem;
+        }
+        /* 버튼 꾸미기 */
+        main button.download
+        {
+            background-color: transparent;
+            border: 3px solid white;
+            border-radius: 20px;
+            padding: 1rem 2rem;
+            margin-top: 3rem;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        /* 아이콘 폰트로 추가한 마우스 모양의 버튼에 스타일 속성 추가 */
+        main button.mouse
+        {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: upDown 1s ease-in-out infinite;
+            cursor: pointer;
+        }
+        @keyframes upDown
+        { 
+            0%
+            {
+                bottom: 1rem;
+            }
+            50%
+            {
+                bottom: 1.5rem;
+            }
+            100%
+            {
+                bottom: 1rem;
+            }
+        }
+        /* 텍스트 타이핑 효과 기능 */
+        main h2 span::after
+        {
+            content: "";
+            height: 40px;
+            width: 3px;
+            background-color: #fff;
+            display: inline-block;
+            animation: blink .7s ease-in-out infinite;
+        }
+        @keyframes blink
+        {
+            0% 
+            {
+                opacity: 1;
+            }
+            100%
+            {
+                opacity: 0;
+            }
+        }
+
+        /* 섹션 영역 */
+        /* 1. 섹션 영역 전체 글꼴과 배경색 설정 */
+        section
+        { /*section 영역 전체 글꼴 설정*/
+            font-family: "Poppins", sans-serif; /*Poppins 글꼴 적용 */
+            padding: 5rem 0; /*위아래 여백 5rem으로 동일하게 지정*/
+        }
+        section:nth-child(2n)
+        { /*추가로 :nth-child(2n) 가상 클래스 선택자를 사용해 짝수번째 섹션 영역의 배경색을 회색 계열로 설정*/
+            background-color: #f8f8f8;
+        }
+        /* 2. 섹션 영역의 전체 제목 설정 */
+        section .title
+        {
+            margin-bottom: 3rem;
+        }
+        section .title h4
+        {
+            font-size:  1.35rem;
+            color: #ed4848;
+            position: relative;
+        }
+        section .title h2 
+        {
+            font-size: 3.5rem;
+        }
+        section .title p
+        {
+            font-size: 1.15rem;
+        }
+        /* 3. About Me 영역 본문 레이아웃 */
+        /* float 속성 해제 */
+        section .about-self::after
+        {
+            content: "";
+            clear: both;
+            display: block;
+        }
+        /* 본문 너비 절반 지정 & 왼쪽 배치 */
+        section .about-self .left
+        {
+            width: 50%;
+            float: left;
+        }
+        /* 이미지 크기가 부모 영역을 넘지 않도록 부모 영역의 최대 크기로 지정 */
+        section .about-self .left img
+        {
+            max-width: 100%;
+
+        }
+        /* 본문 너비 절반 지정 & 오른쪽 배치 */
+        section .about-self .right
+        {
+            width: 50%;
+            float: left;
+            padding: 0 2rem;
+        }
+        /* 4. About Me 영역 본문 세부 */
+        /* 본문 오른쪽 h3 태그의 글자 크기와 여백 지정 */
+        section .about-self .right h3
+        {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+        }
+        /* 본문 오른쪽 h3 태그의 strong 태그 색상 강조 */
+        section .about-self .right h3 strong
+        {
+            color: #ed4848;
+        }
+        /* 본문 오른쪽 p 태그의 크기와 여백 지정 */
+        section .about-self .right p
+        {
+            font-size: 1.15rem;
+            margin: 1rem 0;
+        }
+        /* 본문 오른쪽의 아이콘 폰트 크기와 여백 지정 */
+        section .about-self .right .social a
+        {
+            font-size: 2.5rem;
+            margin-right: 0.2rem;
+
+        }
+
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="container"> <!-- HTML 구조의 핵심인 container 클래스가 포함된 div 태그-->
+            <h1>
+                <button>YUN</button>
+            </h1>
+            <nav>
+                <ul>
+                    <!-- 구조 동일, button 태그의 텍스트 (Features, Portfolio, Contact)만 변경 -->
+                     <li>
+                        <button>About</button>
+                     </li>
+                     <li>
+                        <button>Features</button>
+                     </li>
+                     <li>
+                        <button>Portfolio</button>
+                     </li>
+                     <li>
+                        <button>Contact</button>
+                     </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- main -->
+    <main id="main">
+        <div class="container">
+            <h4>Welcome</h4>
+            <h2>I'M A <span>Front-End Developer</span></h2>
+            <p>Hi, I'm Yoonjung Yang, a front-end developer. </p>
+            <button class="download">DOWNLOAD CV</button>
+            <button class="mouse"><i class="fa-solid fa-computer-mouse"></i></button>
+        </div>
+    </main>
+    <!-- section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="title">
+                <h4>Who Am I</h4>
+                <h2>About Me</h2>
+            </div>
+            <div class="about-self">
+                <div class="left">
+                    <img src="images/with_alone.jpg" alt="">
+                </div>
+                <div class="right">
+                    <h3>Hello, <strong>I`m Yuncoding</strong></h3>
+                    <p>I'm a Web Front-end and Back-end Developer</p>
+                    <p>You're still an immature developer.</p>
+                    <p>But I will never stop trying.</p>
+                    <p>Take a look at my homepage and go for it!</p>
+                    <div class="social">
+                        <!-- 반복 fa-brands fa-instagram, fa-brands fa-twitch, fa-brands fa-youtube, -->
+                         <a href="#">
+                            <i class="fa-brands fa-facebook"></i>
+                         </a>
+                         <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                         </a>
+                         <a href="#">
+                            <i class="fa-brands fa-twitch"></i>
+                         </a>
+                         <a href="#">
+                            <i class="fa-brands fa-youtube"></i>
+                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
