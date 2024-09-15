@@ -42,7 +42,7 @@
             list-style: none;
         }
 
-        /* 헤더 영역의 CSS */
+        /* ------------헤더 영역--------------- */
         .container
         {
             width: 1140px; /*기준 너비*/
@@ -91,7 +91,8 @@
             font-size: 1.2rem;
             color: white; /*텍스트 흰색*/
         }
-        /* 메인 영역 */
+
+        /* ------------메인 영역--------------- */
         main  /* 배경 이미지 지정*/
         {
             width: 100%;
@@ -188,7 +189,7 @@
             }
         }
 
-        /* 섹션 영역 */
+        /* ------------섹션 영역 - About Me--------------- */
         /* 1. 섹션 영역 전체 글꼴과 배경색 설정 */
         section
         { /*section 영역 전체 글꼴 설정*/
@@ -268,7 +269,61 @@
         {
             font-size: 2.5rem;
             margin-right: 0.2rem;
+        }
 
+        /* ------------섹션 영역 - What I Do--------------- */
+        /* 1. What I Do 영역 본문 레이아웃  */
+        /* float 속성 해제 */
+        section .do-me::after
+        {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        /* 사각형 크기와 간격, 내부 여백 설정 */
+        section .do-me .do-inner
+        {
+            background-color: #fff;
+            width: 30%;
+            padding: 2rem;
+            float: left;
+            margin-right: 5%;
+            cursor: pointer;
+        }
+        /* 마지막 사각형의 외부 여백 설정 */
+        section .do-me .do-inner:last-child
+        {
+            margin-right: 0;
+        }
+        /* 2. What I Do 영역 텍스트 세부 조정 */
+        /* 아이콘 폰트 크기와 색상 */
+        section .do-me .do-inner .icon i
+        {
+            font-size: 2.25rem;
+            color: #ff6a6a;
+        }
+        /* HTML5, CSS3 Bootstrap v5.0 텍스트 크기와 간격 */
+        section .do-me .do-inner .content h3
+        {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+        /* 사각형 텍스트 크기 */
+        section .do-me .do-inner .content p
+        {
+            font-size: 1.15rem;
+        }
+        /* 3. What I Do 영역 사각형 배경 처리 */
+        /* do-inner 클래스에 마우스를 올리면 배경색과 텍스트 색상 변경 */
+        section .do-me .do-inner:hover
+        {
+            background-color: lightcoral;
+            color: white;
+        }
+        /* do-inner 클래스에 마우스를 올리면 아이콘 폰트 색상 변경 */
+        section .do-me .do-inner:hover i
+        {
+            color: white;
         }
 
     </style>
@@ -309,7 +364,7 @@
             <button class="mouse"><i class="fa-solid fa-computer-mouse"></i></button>
         </div>
     </main>
-    <!-- section -->
+    <!-- section - about -->
     <section id="about" class="about">
         <div class="container">
             <div class="title">
@@ -343,6 +398,55 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    <!-- section - features -->
+     <!-- 1. What I Do 영역 제목 -->
+    <section id="features" class="do">
+        <div class="container">
+            <div class="title">
+                <h4>Features</h4>
+                <h2>What I Do</h2> 
+            </div>
+            <!-- 2. What I Do 영역 본문 -->
+             <div class="do-me">
+                <!-- HTML5 -->
+                <div class="do-inner">
+                    <div class="icon">
+                         <i class="fa-brands fa-html5"></i>
+                    </div>
+                    <div class="content">
+                         <h3>HTML5</h3>
+                         <br>As most people know, the core technology that powers the web is HTML.</br>
+                            And for the mobile web, the core technology is HTML5.<br>
+                            I'm using this technology.</p>
+                    </div>
+                </div>
+                <!-- CSS3 -->
+                <div class="do-inner">
+                    
+                    <div class="icon">
+                        <i class="fa-brands fa-css3-alt"></i>
+                   </div>
+                   <div class="content">
+                        <h3>CSS3</h3>
+                        <br>CSS is short for cascading style sheets.</br>
+                           Cascading is a word that means “cascading, successive, continuous,” and also means “flowing from top to bottom.<br>
+                           In fact, the way CSS code styles an HTML document is similar to the meaning of the word cascading.</p>
+                   </div>
+             </div>
+             <!-- BootStramp v5.0 -->
+             <div class="do-inner">
+                   <div class="icon">
+                        <i class="fa-brands fa-bootstrap"></i>
+                   </div>
+                   <div class="content">
+                        <h3>BootStramp v5.0</h3>
+                        <br>Bootstrap is an HTML, CSS, and JS framework that makes it easy to create websites.</br>
+                           Responsive pages are also easy to make work with Bootstrap.</p>
+                   </div>
+                </div>
+             </div>
         </div>
     </section>
 </body>
