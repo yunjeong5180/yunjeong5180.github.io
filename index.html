@@ -328,6 +328,101 @@
             color: white;
         }
 
+        /* ------------섹션 영역 - What I Do - 배경 영역--------------- */
+        /* .bg
+        {
+            background: url(./images/background.jpg) center center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 650px;
+        } */
+
+        /* ------------PortFolio 영역--------------- */
+        /* 1. 본문 레이아웃 */
+        /* clear 속성으로 float 속성 값 해제 */
+        /* section.portfolio::after
+        {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        /* portfolio-inner 사각형 꾸미기 */
+        /* section.portfolio .portfolio-inner
+        {
+            width: 30%;
+            margin-right: 5%;
+            padding: 1rem 1rem 1.5rem 1rem;
+            float: left;
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            border-bottom: 3rem;
+        } */
+        /* 3번째마다 margin-right 0 적용 */
+        /* section.portfolio .portfolio-inner:nth-child(3n)
+        {
+            margin-right: 0;
+        } */
+        /* 1. 본문 세부 설정 */
+        /* 이미지 크기가 부모 요소를 넘지 않도록 100% 지정 */
+        /* section.portfolio .portfolio-inner img
+        {
+            width: 100%;
+            display: block;
+        } */
+        /* strong 태그 색상과 간격 */
+        /* section.portfolio .portfolio-inner strong
+        {
+            color: #ff6a6a;
+            margin: 0.5rem 0;
+            display: block;
+        } */
+        /* h3 태그 색상과 간격 */
+        /* section.portfolio .portfolio-inner h3
+        {
+            font-size: 1.75rem;
+        } */
+
+        /* ------ 수정 ------- */
+        /* PortFolio 영역 */
+        section.portfolio .portfolio-me {
+            display: flex;
+            flex-wrap: wrap; /* 줄 바꿈을 허용하여 2줄로 배치 */
+            justify-content: space-between; /* 포트폴리오 항목 사이의 간격을 일정하게 유지 */
+            gap: 20px; /* 항목 간의 간격을 지정 */
+        }
+
+        section.portfolio .portfolio-inner {
+            flex: 1 1 calc(33.333% - 20px); /* 3개씩 배치하기 위해 각 항목의 너비를 33.333%로 지정 */
+            margin-bottom: 20px; /* 아래쪽 여백 추가 */
+            padding: 1rem;
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            text-align: center;
+            box-sizing: border-box; /* padding과 border를 포함한 전체 크기 */
+        }
+
+        section.portfolio .portfolio-inner img {
+            width: 100%; /* 이미지가 컨테이너에 맞춰지도록 설정 */
+            height: 200px; /* 고정된 높이로 설정 */
+            object-fit: cover; /* 이미지 비율 유지 */
+            border-radius: 8px;
+        }
+
+        /* strong 태그 색상과 간격 */
+        section.portfolio .portfolio-inner strong {
+            color: #ff6a6a;
+            margin: 0.5rem 0;
+            display: block;
+        }
+
+        /* h3 태그 색상과 간격 */
+        section.portfolio .portfolio-inner h3 {
+            font-size: 1.75rem;
+            margin-top: 0.5rem;
+            color: #ed4848;
+        }
+
+
     </style>
 </head>
 <body>
@@ -448,7 +543,59 @@
                    </div>
                 </div>
              </div>
+             <!-- 2. What I Do Background -->
+             <!-- <div class="bg"></div> -->
         </div>
     </section>
+    <!-- section - PortFolio -->
+     <!-- PortFolio 영역 제목 -->
+     <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="title">
+                <h4>PORTFOLIOBACK</h4>
+                <h2>PortFolio</h2>
+            </div>
+            <!-- PortFolio 영역 본문 -->
+            <div class="portfolio-me">
+                <!-- 다다다 -->
+                <div class="portfolio-inner">
+                    <img src="images/다다다.jpg" alt="샘플이미지">
+                     <strong>BRANDRING</strong>
+                     <h3>Package Design</h3>
+                </div>
+                <!-- 달빛천사 -->
+                <div class="portfolio-inner">
+                    <img src="images/달빛천사.jpg" alt="샘플이미지">
+                     <strong>DEVELOPMENT</strong>
+                     <h3>Tablet App Dev</h3>
+                </div>
+                <!-- 뽀로로 -->
+                <div class="portfolio-inner">
+                    <img src="images/뽀로로.jpg" alt="샘플이미지">
+                     <strong>MARKETING</strong>
+                     <h3>Coka cola</h3>
+                </div>
+                <!-- 짱구 -->
+                <div class="portfolio-inner">
+                    <img src="images/짱구.jpg" alt="샘플이미지">
+                     <strong>APP</strong>
+                     <h3>FaceBook Clone</h3>
+                </div>
+                <!-- 코난 -->
+                <div class="portfolio-inner">
+                    <!-- 짱구 이미지 -->
+                    <img src="images/코난.jpg" alt="샘플이미지">
+                     <strong>APP</strong>
+                     <h3>Netflix Clone</h3>
+                </div>
+                <!-- 포켓몬스터 -->
+                <div class="portfolio-inner">
+                    <img src="images/포켓몬스터.jpg" alt="샘플이미지">
+                     <strong>WEB</strong>
+                     <h3>FirmBee Web</h3>
+                </div>
+            </div>
+        </div>
+     </section>
 </body>
 </html>
